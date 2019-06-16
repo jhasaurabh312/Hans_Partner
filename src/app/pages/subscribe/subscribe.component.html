@@ -1,0 +1,160 @@
+
+<br>
+<div class="row">
+    <div class="container">
+          <div class="col-xs-12 ">
+            <nav>
+              <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist" style="border:1px solid red;border-radius:5px">
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" style="text-decoration:none;padding-top:18px" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Online Plans</a>
+                <!-- <a class="nav-item nav-link" style="text-decoration:none;padding-top:18px" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Personalised Plans</a> -->
+              </div>
+            </nav>
+            <br>
+            <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                    <section class="pricing-table">
+                            <div class="container">
+                                <div class="row justify-content-md-center">
+                                    <div style="padding:0px 20px 20px 20px;" class="col-md-5 col-lg-4">
+                                        <div class="item"  style="border:1px solid orange;border-radius: 5px">
+                                            <div class="heading">
+                                                <h3>Limited</h3>
+                                            </div>
+                                            <div class="features">
+                                                <br>
+                                                <h4><span class="feature">Credits</span><br><span class="value" style="padding-top:10px">{{ data?.Limited?.Credits }}</span></h4>
+                                                <h4><span class="feature">Validity</span><br><span class="value" style="padding-top:10px">{{ data?.Limited?.Validity}}</span></h4>                     
+                                            </div>
+                                            <div class="price">
+                                                <h4 style="font-weight:bold"><s>{{ data?.Limited?.PrevAmt }}</s></h4>
+                                                <h4 style="font-weight:bold">{{ data?.Limited?.CurrentAmt }}</h4>
+                                            </div>
+                                            <button (click)="pay(data?.Limited?.CurrentAmt,'live')"  class="btn btn-block btn-danger" type="submit">BUY NOW</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5 col-lg-4">
+                                        <div class="item" style="border:1px solid orange;border-radius: 5px">
+                                            <div class="ribbon">Best Value</div>
+                                            <div class="heading" >
+                                                <h3>Supreme</h3>
+                                            </div>
+                                            <div class="features">
+                                                  <br>
+                                                  <h4><span class="feature">Credits</span><br><span class="value" style="padding-top:10px">{{ data?.Supreme?.Credits}}</span></h4>
+                                                  <h4><span class="feature">Validity</span><br><span class="value" style="padding-top:10px">{{ data?.Supreme?.Validity}}</span></h4>
+                                                  
+                                              </div>
+                                              <div class="price">
+                                                <h4 style="font-weight:bold"><s>{{ data?.Supreme?.PrevAmt }}</s></h4>
+                                                <h4 style="font-weight:bold">{{ data?.Supreme?.CurrentAmt }}</h4>                                                  </div>
+                                              <button (click)="pay(data?.Supreme?.CurrentAmt,'live')"  class="btn btn-block btn-danger" type="submit">BUY NOW</button>
+                                          </div>
+                                    </div>
+                                    <div  style="padding:0px 20px 20px 20px" class="col-md-5 col-lg-4">
+                                        <div class="item" style="border:1px solid orange;border-radius: 5px">
+                                            <div class="heading">
+                                                <h3>PREMIUM</h3>
+                                            </div>
+                                            <div class="features">
+                                                  <br>
+                                                  <h4><span class="feature">Credits</span><br><span class="value" style="padding-top:10px">{{ data?.Premium?.Credits}}</span></h4>
+                                                  <h4><span class="feature">Validity</span><br><span class="value" style="padding-top:10px">{{ data?.Supreme?.Validity}}</span></h4>
+                                                  
+                                              </div>
+                                              <div class="price">
+                                                <h4 style="font-weight:bold"><s>{{ data?.Premium?.PrevAmt }}</s></h4>
+                                                <h4 style="font-weight:bold">{{ data?.Premium?.CurrentAmt }}</h4>                                                  </div>
+                                              <button (click)="pay(data?.Premium?.CurrentAmt,'live')"  class="btn btn-block btn-danger" type="submit">BUY NOW</button>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+              </div>
+             
+              
+            </div>
+          
+          </div>
+    </div>
+</div>
+
+
+
+
+<!-- <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <section class="pricing-table">
+            <div class="container">
+                <div class="text-center">
+                <strong style="color:black">Handpicked Profiles</strong>
+            
+                <h6 style="color:black">You will get expert assistance from HM team and all communications will be managed by our team</h6>
+            </div>
+                <div class="row justify-content-md-center">
+                    <div style="padding:0px 20px 20px 20px;" class="col-md-5 col-lg-4">
+                        <div class="item"  style="border:1px solid orange;border-radius: 5px">
+                            <div class="heading">
+                                <h5>Personalised Premium (6 months)</h5>
+                            </div>
+                            <div class="container" style="float:left">
+                            <p class="text-center" style="color:red">Benefits</p>
+                            <span class="benefitContent" >{{ data?.PersonalizedPremium6?.Benefits }}</span><br><br>
+                            <br><span class="benefitContent"><b>Match maker's role : </b></span>
+                            <p class="text-center">Profile Presentation</p>
+                            <p class="text-center">Meeting Coordination</p>
+                            <p class="text-center">Pre and post meeting feedback</p>
+                        </div>
+                            <div class="features">
+                                <br>                                       
+                                <h4><span class="feature">Validity</span><br><span class="value" style="padding-top:10px">{{ data?.PersonalizedPremium6?.Validity }}</span></h4>
+                                <h4><span class="feature">Charges</span><br><span class="value" style="padding-top:10px">{{ data?.PersonalizedPremium6?.Charges }}</span><br></h4>
+                            </div>
+                            <button (click)="pay(19000,'live')"  class="btn btn-block btn-danger" type="submit">BUY NOW</button>
+                        </div>
+                    </div>
+                    <div style="padding:0px 20px 20px 20px;" class="col-md-5 col-lg-4">
+                        <div class="item"  style="border:1px solid orange;border-radius: 5px">
+                            <div class="heading">
+                                <h5>Personalised Deluxe NRI</h5>
+                            </div>
+                            <div class="container" style="float:left">
+                            <p class="text-center" style="color:red">Benefits</p>
+                            <span class="benefitContent" >{{ data?.PersonalizedDeluxeNRI?.Benefits }}</span><br><br>
+                            <br><span class="benefitContent" ><b>Match maker's role : </b></span>
+                            <p class="text-center">Profile Presentation</p>
+                            <p class="text-center">Meeting Coordination</p>
+                            <p class="text-center">Pre and post meeting feedback</p>
+                        </div>
+                            <div class="features">
+                                <br>                                       
+                                <h4><span class="feature">Validity</span><br><span class="value" style="padding-top:10px">{{ data?.PersonalizedDeluxeNRI?.Validity }}</span></h4>
+                                <h4><span class="feature">Charges</span><br><span class="value" style="padding-top:10px">{{ data?.PersonalizedDeluxeNRI?.Charges }}</span><br></h4>
+                            </div>
+                            <button (click)="pay(25000,'live')"  class="btn btn-block btn-danger" type="submit">BUY NOW</button>
+                        </div>
+                    </div>
+                    <div style="padding:0px 20px 20px 20px;" class="col-md-5 col-lg-4">
+                        <div class="item"  style="border:1px solid orange;border-radius: 5px">
+                            <div class="heading">
+                                <h5>Personalised Premium 12 months</h5>
+                            </div>
+                            <div class="container" style="float:left">
+                            <p class="text-center" style="color:red">Benefits</p>
+                            <span class="benefitContent" >{{ data?.PersonalizedPremium12?.Benefits }}</span><br><br>
+                            <br><span class="benefitContent"><b>Match maker's role : </b></span>
+                            <p class="text-center">Profile Presentation</p>
+                            <p class="text-center">Meeting Coordination</p>
+                            <p class="text-center">Pre and post meeting feedback</p>
+                        </div>
+                            <div class="features">
+                                <br>                                       
+                                <h4><span class="feature">Validity</span><br><span class="value" style="padding-top:10px">{{ data?.PersonalizedPremium12?.Validity }}</span></h4>
+                                <h4><span class="feature">Charges</span><br><span class="value" style="padding-top:10px">{{ data?.PersonalizedPremium12?.Charges }}</span><br></h4>
+                            </div>
+                            <button (click)="pay(25000,'live')"  class="btn btn-block btn-danger" type="submit">BUY NOW</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div> -->

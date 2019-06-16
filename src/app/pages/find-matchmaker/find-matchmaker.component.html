@@ -1,0 +1,53 @@
+<main class="card-wrapper" style="background-color:white">
+  <div class="nav navbar" style="min-height:100px;display: flex;border-bottom:2px solid black">
+     <div style="float:left;display:flex"><img src="../../../assets/images/Group2116.png" style="height:80px"><h5 style="margin-top:auto;margin-bottom:auto;">Matchmakerz</h5></div>
+        
+  </div>
+
+  <div style="display:flex">
+     <div class="col-sm-12 col-lg-6 col-md-6">
+         <form [formGroup]='getLocation'>
+            <div class="input-group p-2">
+                  <div class="input-group p-2" style="display:flex">
+                     <input formControlName="place" placeholder="Enter your Location" class="form-control" >
+                     <button type="button" class="btn btn-user " (click)="detectLocation()" >  &nbsp;   &nbsp;Auto Detect &nbsp;&nbsp;</button>          
+                  </div>
+            </div>
+            <div class="input-group p-2">
+               <button type="button" class="btn btn-user " (click)="findLocation()" >  &nbsp;   &nbsp; Submit &nbsp;&nbsp;</button>        
+            </div> 
+         </form>
+     </div>
+     <div class="col-sm-12 col-lg-6 col-md-6"></div>
+  </div>
+
+  <div class="row" style="display:flex;background-color: #F1F1F1;min-height: -webkit-fill-available ; margin-bottom: 100px" >
+      <div class="col-sm-12 col-md-6 col-lg-6" style="margin-top:25px;" *ngFor="let member of matchmakers" >
+          <div class="row" style="display:flex; background-color: white; width: 90%;margin-left: auto;margin-right: auto">
+            <div class="column-l" (click)="clientProfile(member.id)">
+             <div style="border-radius:50%;padding: 10px;"> <img src="{{member.profile_photo}}" style="width: 100%" ></div>
+            </div>
+            <div class="column-r">
+              
+                <h6>&nbsp;&nbsp;{{member.name}}</h6>   
+                <p>&nbsp;&nbsp;{{member.age}}yrs</p>
+                <p> <img src="./../../../assets/icons/graduation-hat.svg"style="width:40px;height:20px">{{member.degree}}</p>
+                <p> <img src="./../../../assets/icons/graduation-hat.svg" style="width:40px;height:20px">{{member.height}}</p>       
+                <p> <img src="./../../../assets/icons/heart.svg" style="width:40px;height:20px">{{member.about}}</p>
+                <p> <img src="./../../../assets/icons/briefcase-alt.svg" style="width:40px;height:20px">{{member.job}}</p>             
+                <p> <img src="./../../../assets/icons/map-marker.svg" style="width:40px;height:20px">{{member.current_city}}</p>
+                         
+  
+                <div class="button" style="margin-top : 10px; display: fiex">
+                  <button type="button" (click) = "getMatches(member.id)"><img src="./../../../assets/icons/search.svg" style="width:20px;height:20px">Matches</button>
+                  <button type="button" (click) = "getActivity(member.id)"><img src="./../../../assets/icons/clock.svg" style="width:20px;height:20px">Activity</button>
+                </div>     
+             </div>
+          </div>
+      </div>
+  </div>
+
+   
+</main>
+
+  
