@@ -1,7 +1,6 @@
 <main class="card-wrapper" style="background-color:white">
-  <div class="nav navbar" style="min-height:100px;display: flex;border-bottom:2px solid black">
-     <div style="float:left;display:flex"><img src="../../../assets/images/Group2116.png" style="height:80px"><h5 style="margin-top:auto;margin-bottom:auto;">Matchmakerz</h5></div>
-        
+  <div class="nav navbar" style="display: flex;border-bottom:2px solid black">
+     <div style="float:left;display:flex"><img src="../../../assets/images/Group2116.png" style="height:40px"><h5 style="margin-top:auto;margin-bottom:auto;">Matchmakerz</h5></div>      
   </div>
 
   <div style="display:flex">
@@ -21,33 +20,53 @@
      <div class="col-sm-12 col-lg-6 col-md-6"></div>
   </div>
 
-  <div class="row" style="display:flex;background-color: #F1F1F1;min-height: -webkit-fill-available ; margin-bottom: 100px" >
-      <div class="col-sm-12 col-md-6 col-lg-6" style="margin-top:25px;" *ngFor="let member of matchmakers" >
-          <div class="row" style="display:flex; background-color: white; width: 90%;margin-left: auto;margin-right: auto">
-            <div class="column-l" (click)="clientProfile(member.id)">
-             <div style="border-radius:50%;padding: 10px;"> <img src="{{member.profile_photo}}" style="width: 100%" ></div>
-            </div>
-            <div class="column-r">
-              
-                <h6>&nbsp;&nbsp;{{member.name}}</h6>   
-                <p>&nbsp;&nbsp;{{member.age}}yrs</p>
-                <p> <img src="./../../../assets/icons/graduation-hat.svg"style="width:40px;height:20px">{{member.degree}}</p>
-                <p> <img src="./../../../assets/icons/graduation-hat.svg" style="width:40px;height:20px">{{member.height}}</p>       
-                <p> <img src="./../../../assets/icons/heart.svg" style="width:40px;height:20px">{{member.about}}</p>
-                <p> <img src="./../../../assets/icons/briefcase-alt.svg" style="width:40px;height:20px">{{member.job}}</p>             
-                <p> <img src="./../../../assets/icons/map-marker.svg" style="width:40px;height:20px">{{member.current_city}}</p>
-                         
-  
-                <div class="button" style="margin-top : 10px; display: fiex">
-                  <button type="button" (click) = "getMatches(member.id)"><img src="./../../../assets/icons/search.svg" style="width:20px;height:20px">Matches</button>
-                  <button type="button" (click) = "getActivity(member.id)"><img src="./../../../assets/icons/clock.svg" style="width:20px;height:20px">Activity</button>
-                </div>     
-             </div>
+  <div class="row" style="display:flex;background-color: white;min-height: -webkit-fill-available ; margin-bottom: 60px" >
+      <div class="col-sm-12 col-md-6 col-lg-6" style="margin-top:25px;border-radius: 25px;padding:10px" *ngFor="let member of matchmakers" >
+          <div class="row" style="display:flex; background-color: #f1f1f1f1; width: 90%;margin-left: auto;margin-right: auto;border-radius:25px" >
+               <div style="display:flex">
+                     <div class="column-l">
+                        <div style="border-radius:50%;padding: 10px;"> <img src="{{member[1].profile_pic}}" style="width: 100%;border-radius: 50%;" ></div>
+                        <div style="margin-top:7px"><p style="text-align:center;font-size:20px">{{member[1].age}}yrs</p>     </div>
+                     </div>
+                     <div class="column-r">           
+                        <h5 style="margin-top:15px">&nbsp;&nbsp;{{member[1].first_name}}</h5>   
+                        <p style="margin-top:5px;font-size:1rem">&nbsp;&nbsp;{{member[1].about}}</p>
+                     </div>
+               </div>
+
+               <div class="row" style="display:flex;width: 100% ;padding:8px">
+                  <div style="width:33%;text-align:center">
+                     <button class="btn btn-primary" type="button" (click) = "getMatches(member[1].id)">Register</button>
+                  </div> 
+                  <div style="width:33%;text-align:center">
+                     <button class="btn btn-primary" type="button" (click) = "getActivity(member[1].id)">Subscribe</button>
+                  </div> 
+                  <div style="width:33%;text-align:center" >
+                     <button class="btn btn-primary" type="button" (click) = "toggle(member[1].id)">Get In Touch</button>
+                  </div> 
+               </div>
           </div>
       </div>
   </div>
-
-   
+  <div class="card-wrapper" style="width:50%;margin-left:auto;margin-right:auto;background-color:#f1f1f1" *ngIf="show">
+      <div class="input-group p-2" style="display:block">
+         <h5>Name : {{member[1].first_name}}</h5>
+      </div>
+      <div class="input-group p-2" style="display:block">
+         <h5>Contact : {{member[1].phone_number}}</h5>
+      </div>
+      <div class="input-group p-2" style="display:block">
+         <h5>Whatsapp : {{member[1].whatsapp_number}}</h5>
+      </div>
+      <div style="display:block">
+         <form [formGroup]='getLocation'>
+               <div class="input-group p-2" >
+                  <input formControlName="phone" placeholder="Enter your Phone number" class="form-control">
+               </div>
+               <div class="input-group p-2">         
+                  <button type="button" class="btn btn-user " (click)="getACall(member.id)" >  Get A Call Back &nbsp;&nbsp;</button> 
+               </div>
+         </form>                  
+      </div>
+   </div>           
 </main>
-
-  
