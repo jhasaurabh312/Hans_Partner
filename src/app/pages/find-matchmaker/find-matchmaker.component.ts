@@ -82,22 +82,10 @@ export class FindMatchmakerComponent implements OnInit {
     })
   }
 
-  // profile(data){
-  //   localStorage.setItem('mmID',data);
-  //   this.router.navigate(['/matchmaker-profile']);
-  // }
 
-
-  toggle(){  
-    if(!this.show)
-     return this.show=true;
-    else 
-     return this.show=false; 
+  getACall(){
+    document.getElementById('exampleModal').style.display = 'block';
   }
 
-   myFunction() {
-    var popup = document.getElementById("myPopup");
-    popup.classList.toggle("show");
-  }
 
 }

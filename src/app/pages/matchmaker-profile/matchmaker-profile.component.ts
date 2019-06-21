@@ -9,7 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class MatchmakerProfileComponent implements OnInit {
 
   res : any;
-  constant : any =[];
+  member : any =[];
 
   constructor(public http : HttpClient) { }
 
@@ -22,7 +22,7 @@ export class MatchmakerProfileComponent implements OnInit {
 
   
    this.http.get('http://matchmakerz.in/api/v1/client/get-matchmaker?id='+localStorage.getItem('mmID'), {headers : headers}).subscribe((res) => {
-     this.constant=res;
+     this.member=res;
      console.log(res);
    })
   }
