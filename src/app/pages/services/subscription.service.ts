@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-declare var Razorpay: any; 
+import { HttpClient } from '@angular/common/http';
+declare var Razorpay : any;
 @Injectable({
   providedIn: 'root'
 })
-
 export class SubscriptionService {
 
-  constructor() { }
+  constructor(private http : HttpClient) { }
   payNowT(amt,type) {
     var notes = {service:''};
     var keyId;
@@ -22,7 +22,7 @@ export class SubscriptionService {
     }
     if(type == 'test')
     {
-      keyId="rzp_test_kmaBmqJE4QobLi";
+      keyId="rzp_test_I3vE1kAsW8cXdH";
     }else
     if(type=='live'){
       keyId="rzp_live_e6JpOKoIUEouZT";
@@ -38,6 +38,7 @@ export class SubscriptionService {
       "handler": function (response){
           console.log(response);
           alert(response.razorpay_payment_id);
+
          },
       "prefill": {
           "name":  'test',
