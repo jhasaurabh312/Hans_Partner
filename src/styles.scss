@@ -1,6 +1,5 @@
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 @import "~bootstrap/dist/css/bootstrap.css";
 @import '~bootstrap/scss/functions';
 @import '~bootstrap/scss/variables';
@@ -8,3 +7,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 @import '~bootstrap/scss/root';
 @import '~bootstrap/scss/reboot';
 @import '~bootstrap/scss/grid';
+
+html, body {
+     height: 100%; 
+}
+
+body { 
+    margin: 0; 
+    font-family: 'Poppins', sans-serif;
+}

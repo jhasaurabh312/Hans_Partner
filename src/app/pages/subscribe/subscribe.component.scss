@@ -1,177 +1,63 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat");
-.back-ground{
-  min-height: 25vh;
-  background: url('https://wallpapercave.com/wp/2ujUKnj.jpg') no-repeat center;
-  background-size: 100% 250px;
-  background-position: top center;
+
+     
+      .btn-user {
+        font-size: 1rem;
+        border-radius: 10rem;
+        // padding: .75rem 1rem;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: #F92CBB;
+        margin-top: 30px;
+        color: white;
+        font-weight: 600
+      }
+
+      .example-full-width{
+        width: 70% ;
+        height: 40px;
+        margin-right: auto;
+        margin-left: auto
+      }
+      .form-row{
+        margin: 2%;
+      }
+    
+
+    .circle{
+  height: 40px;
+  border-radius: 100%;
+  margin-top: 10px;
+  margin-bottom: auto;
+  // background-color: #F92CBB;
+  width: 40px;
+  margin-right: 25px;
+  background-position: center;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  -webkit-transition-property: width, height, background-color, box-shadow ;/* Safari */
+  -webkit-transition-duration: 0.9s; /* Safari */
+  transition-property:  width, height,background-color, border, box-shadow;
+  transition-duration: 0.9s;
+}
+.circle:hover{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.benefitContent
-{
-  display: block;
-  text-align: center;
-  padding: 10px;
-
+#header{
+   
+  // display:flex;
+  width: 100%;
+  // position: fixed;
+   z-index: 100;
+   height: 70px;
+  background-color:white;
+  // box-shadow: 10px 4px 10px 0 rgba(0, 0, 0, 0.2), 0 0px 0px 0 rgba(0, 0, 0, 0.19);
 }
 
-
-.declaration{
-  padding-top:30px
-}
-.pricing-table{
-  background-color: white;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.pricing-table .block-heading {
-  padding-top: 50px;
-  margin-bottom: 40px;
-  text-align: center; 
-}
-
-.pricing-table .block-heading h2 {
-  color: #3b99e0;
-}
-
-.pricing-table .block-heading p {
-  text-align: center;
-  max-width: 420px;
-  margin: auto;
-  opacity: 0.7; 
-}
-
-.pricing-table .heading {
-  text-align: center;
-  padding: 10px;
-  border-bottom: 1px solid orange;
-  margin: 10px
-}
-
-.pricing-table .item {
-  overflow: hidden;
-  position: relative; 
-}
-
-.pricing-table .col-md-5:not(:last-child) .item {
-  margin-bottom: 30px; 
-}
-
-.pricing-table .item button {
-  font-weight: 600; 
-}
-
-.pricing-table .ribbon {
-  width: 160px;
-  height: 32px;
-  font-size: 12px;
-  text-align: center;
-  color: #fff;
-  font-weight: bold;
-  box-shadow: 0px 2px 3px rgba(136, 136, 136, 0.25);
-  background:#500312;
-  color:orange;
-  transform: rotate(45deg);
-  position: absolute;
-  right: -42px;
-  top: 20px;
-  padding-top: 7px; 
-}
-
-.pricing-table .item p {
-  text-align: center;
+.row{
   margin-top: 20px;
-  opacity: 0.7; 
-}
-
-.pricing-table .features .feature {
-  color:red}
-
-.pricing-table .features h4 {
-  text-align: center;
-  font-size: 18px;
-  padding: 5px; 
-}
-
-.pricing-table .price h4 {
-  margin: 15px 0;
-  font-size: 45px;
-  text-align: center;
-  color: orange; 
-}
-
-.pricing-table .buy-now button {
-  text-align: center;
-  margin: auto;
-  font-weight: 600;
-  padding: 9px 0; 
-}
-
-
-
-
-
-
-
-
-
-
-
-nav > .nav.nav-tabs{
-  border: none;
-    color:red;
-    background:white;
-    border-radius:0;
-
-}
-#nav-profile-tab{
-  color:orange
- }
-
-nav > div a.nav-item.nav-link.active
-{
-  border: none;
-    padding: 18px 25px;
-    color:white;
-    background:red;
-    border-radius:0;
-}
-
-
-#nav-home-tab{
-  color:orange
-}
-nav > div a.nav-item.nav-link.active:after
- {
-  content: "";
-  position: relative;
-  bottom: -55px;
-  left: -10%;
-  border: 15px solid transparent;
-  border-top-color: red ;
-}
-.tab-content{
-  background: #fdfdfd;
-    line-height: 25px;
-    padding:30px 25px;
-}
-
-nav > div a.nav-item.nav-link:hover,
-nav > div a.nav-item.nav-link:focus
-{
-  border: none;
-}
-
-@media only screen and (max-width: 768px) {
-  .declaration{
-    padding:30px 0;
-
-  }
-  .back-ground{
-    height: auto;
-    background: url(https://wallpapercave.com/wp/2ujUKnj.jpg) no-repeat center;
-    background-size: 100% 100%;
-  }
-  nav{
-    padding: 0 45px;
-  }
+  margin-bottom:20px;
+  margin:20px;
+  display: flex;
 }
