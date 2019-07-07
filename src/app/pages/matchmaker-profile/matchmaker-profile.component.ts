@@ -1,17 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { MatDialogModule } from '@angular/material';
+import { FormBuilder, FormGroup } from '@angular/forms';
+
 
 @Component({
   selector: 'app-matchmaker-profile',
   templateUrl: './matchmaker-profile.component.html',
-  styleUrls: ['./matchmaker-profile.component.scss']
+  styleUrls: ['./matchmaker-profile.component.scss'],
+   providers: [NgbModalConfig, NgbModal]
 })
 export class MatchmakerProfileComponent implements OnInit {
 
   res : any;
   member : any =[];
+  getTouch:FormGroup;
+  constructor(private http : HttpClient,private _formBuilder: FormBuilder,config: NgbModalConfig, private modalService: NgbModal) {
+     config.backdrop = 'static';
+    config.keyboard = false;
+        this. getTouch= this._formBuilder.group({
+      'phone_number' : '',
 
-  constructor(public http : HttpClient) { }
+    });; 
+  }
 
   ngOnInit() {
    
@@ -26,5 +38,12 @@ export class MatchmakerProfileComponent implements OnInit {
      console.log(res);
    })
   }
-
+  open(content) {
+    this.modalService.open(content);
+  }
+  touch(){
+    const NewProfile  = new FormData();
+    NewProfile.append('is_working', this.getTouch.value.phone_number );   
+      console.log(this.getTouch.value.phone_number)
+    }
 }

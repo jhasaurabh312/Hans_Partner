@@ -10,8 +10,8 @@ import { RegisterComponent } from './pages/register/register.component';
 import { MatchmakerProfileComponent } from './pages/matchmaker-profile/matchmaker-profile.component';
 import { SubscribeComponent } from './pages/subscribe/subscribe.component'
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-
-
+import { MatDialogModule } from '@angular/material';
+import {NgbModule,NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 // import { AdListingComponent } from './ad-listing/ad-listing.component';
 // import { AngularFireModule } from '@angular/fire';
 // import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -44,6 +44,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgbModule,
+    NgbPaginationModule, NgbAlertModule,
+    MatDialogModule
     // HttpClient,
     // AngularFireModule.initializeApp(environment.firebaseConfig),
     // AngularFireAuthModule,

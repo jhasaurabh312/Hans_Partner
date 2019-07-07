@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="33.75" height="50" viewBox="0 0 33.75 50">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="Rupee" transform="translate(-5.3 -2)">
+    <path id="Path_53" data-name="Path 53" class="cls-1" d="M37.3,7.5h-8a11.8,11.8,0,0,1,2.75,6.75h7L37.3,19.5H32.05a13.376,13.376,0,0,1-4.75,9.25c-2.75,2-6.75,3-11.75,3l17,19.75V52h-8L6.3,30.75V26.5h8.5a14.459,14.459,0,0,0,7-1.75,8.81,8.81,0,0,0,3.5-5H5.3l1.5-5.5H25.05c-1-4.25-4.5-6.5-10-6.75H5.3L7.05,2H38.8Z" transform="translate(0 0)"/>
+  </g>
+</svg>

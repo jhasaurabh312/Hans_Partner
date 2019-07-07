@@ -1,45 +1,181 @@
-<main class="card-wrapper">
-  <div class="section">
-        <div class="header">
-          
+<ng-container>
+  <div class="section shadow" id="header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-8 col-lg-9" style="display:flex;height:85px;">
+          <img [routerLink]="['/clients']" src="../../../assets/icons/icons-20.svg" style="width:80px;height:80px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
+          <h5 style="font-size:1.4em;font-family: poppins;margin-left: 20px;margin-top:auto;margin-bottom:auto;font-weight:bold;color:#606060;font-style: continuous">Matchmakerz</h5>
         </div>
-        <!-- image section -->
-        <div class="section">
-          <div class="container-fluid" style="background-image:url(member.cover_photo);width: 100%; height:300px"></div>
-          <div class="main-photo" style="border:5px solid white;width:30%;height:100px;margin-left:auto;margin-right:auto">
-            <img src="member.profle_photo" >
+        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3" style="display:flex;height:85px;">
+          <button class="btn btn-md shadow" style="margin-top: auto;margin-bottom: auto;margin-left: 10%;border-radius: 20px;border: 1px solid #f93c8b;color: #f93c8b;">Are you matchmaker</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <img src="../../../assets/images/img1.jpg" style="height: 400px;width: 100%;">
+    <div>
+      <div class="container">
+        <div class="row">
+          <div class="container">
+            <div class="row">
+              <img class="img-thumbnail" id="matchmaker-img" src="../../../assets/images/img1.jpg">
+            </div>
           </div>
         </div>
-         <!-- image section ends -->
-
-        <div class="section">
-      
-        </div>
-      
-          <div class="footer">
-            <!-- contact footer-->
-            <div class="row" style="display:block;text-align:center">
-              <div style="text-align:center"><h5>CONTACT</h5></div>
-               <div class="row" style="display:flex">
-                   <div class="col-sm-6 col-md-6 col-lg-6" style="float:right">
-                        <i>{{member.phone_number}}</i>
-                    </div>
-                    <div class="col-sm-6 col-md-6 col-lg-6" style="float:left">
-                        <i>{{member.email}}</i>
-                     </div>
-               </div>
+        <div class="row">
+          <div class="container">
+            <div class="row">
+              <h3 id="name">Avkaran Singh</h3>
             </div>
-            <!-- /Contact footer ends-->
-  </div>  
-  <!-- social media -->
-  <div class="row" style="display:flex">
-      <div class="col-sm-6 col-lg-6" style="text-align:right"><h5>FOLLOW US :</h5></div>
-      <div class="col-sm-6 col-lg-6" style="text-align :left">
-        <i class="fa fa-facebook"></i> 
-        <i class="fa fa-twitter"></i>
-      </div>
-  </div>
-  <!-- social media ends-->
+          </div>
+        </div>
+        <div class="row">
+          <div class="container">
+            <div class="row">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12" id="button-div">
+                    <button class="btn shadow" id="button">Register Now</button>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12" id="button-div">
+                    <ng-template #content let-c="close" let-d="dismiss">
+                      <div class="modal-header">
+                        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                          <p>Hello, World!</p>
+                          <form [formGroup]="getTouch">
+                          <label>phone number</label>
+                            <input formControlName="phone_number" type="number" >
+                            <button type="submit" (click)="touch()">submit</button>
+                          </form>
+                        </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
+                        </div>
+                      </ng-template>
 
-</div>
-</main>
+                    <button class="btn shadow" id="button" (click)="open(content)">Get In-Touch</button>
+                  </div>
+                  <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12" id="button-div">
+                    <button class="btn shadow" id="button">Subscribe</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="container">
+            <div class="row">
+              <div class="container" id="text-div">
+                <div class="row">
+                  <h4>About</h4>
+                </div>
+                <div class="row">
+                  <p>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="container">
+            <div class="row">
+              <div class="container" id="text-div">
+                <div class="row">
+                  <h4>Unique About Me</h4>
+                </div>
+                <div class="row">
+                  <p>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="container">
+            <div class="row">
+              <div class="container" id="text-div">
+                <div class="row">
+                  <h4>Specialise In</h4>
+                </div>
+                <div class="row">
+                  <p>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="container">
+            <div class="row">
+              <img [routerLink]="['/clients']" src="../../../assets/icons/icons-20.svg" style="width:100%;height:100px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;margin: auto;margin-top: 50px">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="container">
+            <div class="row" style="margin-top: 4%;">
+              <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="flex-row" style="display: flex">
+                  <img [routerLink]="['/clients']" src="../../../assets/icons/map-marker.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
+                  <h5 id="footer-text">Matchmakerz sdfdsf sfdsfdsf sdfds</h5>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="flex-row" style="display: flex">
+                  <img [routerLink]="['/clients']" src="../../../assets/icons/envelope.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
+                  <h5 id="footer-text">avkaranssingh357 @gmial.com</h5>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                <div class="flex-row" style="display: flex">
+                  <img [routerLink]="['/clients']" src="../../../assets/icons/phone.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
+                  <h5 id="footer-text">+91 7201917113</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="container">
+            <div class="row">
+              <h3 style="margin: auto;margin-top: 8%;color: ">Follows On</h3>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="container">
+            <div class="flex-row" style="display: flex;margin-right: 6%; ">
+              <div style="margin:auto;">
+                <img [routerLink]="['/clients']" src="../../../assets/icons/map-marker.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
+                <img [routerLink]="['/clients']" src="../../../assets/icons/map-marker.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
+                <img [routerLink]="['/clients']" src="../../../assets/icons/map-marker.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
+                <img [routerLink]="['/clients']" src="../../../assets/icons/map-marker.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
+                <img [routerLink]="['/clients']" src="../../../assets/icons/map-marker.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="height: 50px;background: #f1f1f1;margin-top: 7%;">
+    <div class="container">
+      <div class="row">
+              <div style="font-size: 17px;height: 33px;padding: 15px;margin: auto;color: #f93c8b"> 
+                Copyright 2019 All rights reserbvred by Twango Social Network Pbt. Ltd
+              </div>
+      </div>
+    </div>
+
+  </div>
+
+</ng-container>
+
+
+
