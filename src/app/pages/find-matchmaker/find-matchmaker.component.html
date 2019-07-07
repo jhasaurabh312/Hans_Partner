@@ -1,49 +1,82 @@
-<main class="card-wrapper" style="background-color:white">
-  <div class="nav navbar" style="display: flex;border-bottom:2px solid black">
-     <div style="float:left;display:flex"><img src="../../../assets/images/Group2116.png" style="height:40px"><h5 style="margin-top:auto;margin-bottom:auto;">Matchmakerz</h5></div>      
-  </div>
-
-  <div style="display:flex">
-     <div class="col-sm-12 col-lg-6 col-md-6">
-         <form [formGroup]='getLocation'>
-            <div class="input-group p-2">
-                  <div class="input-group p-2" style="display:flex">
-                     <input formControlName="place" placeholder="Enter your Location" class="form-control" >
-                     <button type="button" class="btn btn-user " (click)="detectLocation()" >  &nbsp;   &nbsp;Auto Detect &nbsp;&nbsp;</button>          
-                  </div>
-            </div>
-            <div class="input-group p-2">
-               <button type="button" class="btn btn-user" (click)="findLocation()" >  &nbsp;   &nbsp; Submit &nbsp;&nbsp;</button>        
-            </div> 
-         </form>
-     </div>
-     <div class="col-sm-12 col-lg-6 col-md-6"></div>
-  </div>
-
-  <div class="row" style="display:flex;background-color: white;min-height: -webkit-fill-available ; margin-bottom: 60px" >
-      <div class="col-sm-8 col-md-5 col-lg-5" style="margin-top:25px;border-radius: 25px;padding:10px; margin-left: auto;margin-right: auto" *ngFor="let member of matchmakers" >
-          <div class="row" style="display:flex; background-color: #f1f1f1f1; width: 90%;margin-left: auto;margin-right: auto;border-radius:25px" >
-               <div style="display:flex">
-                     <div class="column-l">
-                        <div style="border-radius:50%;padding: 10px;"> <img src="{{member[1].profile_pic}}" style="width: 100%;border-radius: 50%;" ></div>
-                        <div style="margin-top:7px"><p style="text-align:center;font-size:20px">{{member[1].age}}yrs</p>     </div>
-                     </div>
-                     <div class="column-r">           
-                        <h5 style="margin-top:15px">&nbsp;&nbsp;{{member[1].first_name}}</h5>   
-                        <p style="margin-top:5px;font-size:1rem">&nbsp;&nbsp;{{member[1].about}}</p>
-                     </div>
-               </div>
-
-               <div class="row" style="display:flex;width: 80% ;padding:8px;margin-right: auto;margin-left: auto">
-                  <div style="width:50%;text-align:center">
-                     <button class="btn btn-primary" type="button" (click) = "registerProfile(member[1].id)">Register</button>
-                  </div> 
-                  <div style="width:50%;text-align:center">
-                     <button class="btn btn-primary" type="button" (click) = "viewProfile(member[1].id)">View Profile</button>
-                  </div> 
-               </div>
-          </div>
+<ng-container style="background-color:white;overflow: hidden;">
+  <div class="section shadow" id="header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-6 col-sm-7 col-md-8 col-lg-9" style="display:flex;height:85px;">
+          <img [routerLink]="['/clients']" src="../../../assets/icons/icons-20.svg" style="width:80px;height:80px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
+          <h5 style="font-size:1.4em;font-family: poppins;margin-left: 20px;margin-top:auto;margin-bottom:auto;font-weight:bold;color:#606060;font-style: continuous">Matchmakerz</h5>
+        </div>
+        <div class="col-xs-6 col-sm-5 col-md-4 col-lg-3" style="display:flex;height:85px;">
+          <button class="btn btn-md shadow" style="margin-top: auto;margin-bottom: auto;margin-left: 10%;border-radius: 20px;border: 1px solid #f93c8b;color: #f93c8b;">Are you matchmaker</button>
+        </div>
       </div>
+    </div>
+  </div>
+  <div>
+    <img src="../../../assets/images/img1.jpg" style="height: 400px;width: 100%;">
+    <div>
+      <div class="container">
+        <div class="row">
+          <div id="search-div">
+            <h3>
+              Search <br/> Matchmaker Near you
+            </h3>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div id="search-div-2">
+            <div class="row">
+              <div class="col-lg-4 col-md-3 col-sm-3 col-xs-6">
+                <button id="show-location">Delhi</button>
+              </div>
+              <div class="col-sm-9 col-xs-6 col-lg-8 col-md-9">
+                <form [formGroup]='getLocation' id="form">
+                  <div class="row" style="background: white;border-radius: 5px;width: 100%;">
+                    <input formControlName="place" placeholder="Enter your Location" id="location-input">
+                    <label id="label" (click)="detectLocation()" id="location-mark">Detect @</label>
+                  </div>
+                  <button type="button" class="btn-user" (click)="findLocation()">&nbsp; &nbsp; Submit &nbsp;&nbsp;</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="row" style="display:flex;background-color: white; margin:3%;margin-bottom: 60px">
+      <div class="col-sm-8 col-md-11 col-lg-6" id="card" *ngFor="let member of matchmakers">
+        <div class="row shadow-sm" style="display:flex; background-color: #f1f1f1f1; width: 90%;height:120%;margin-left: auto;margin-right: auto;border-radius:25px;margin-bottom: 6%;margin-top:10%;">
+          <div class="container">
+            <div class="row" style="height: 82%">
+              <div class="col-sm-11 col-xs-11 col-md-4 col-lg-4">
+                <div style="border-radius:50%;padding: 10px;">
+                  <img src="{{member[1].profile_pic}}" style="width: 100%;border-radius: 50%;">
+                </div>
+                <div style="margin-top:7px">
+                  <p style="text-align:center;font-size:20px">{{member[1].age}}yrs</p>
+                </div>
+              </div>
+              <div class="col-sm-11 col-xs-11 col-md-8 col-lg-8">
+                <h5 style="margin-top:15px">&nbsp;&nbsp;{{member[1].first_name}}</h5> 
+                <p style="margin-top:5px;font-size:1rem">&nbsp;&nbsp;{{member[1].about}}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="text-align:center">
+                <button class="btn shadow" type="button" id="button-card" (click)="registerProfile(member[1].id)">Register</button>
+              </div>
+              <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12" style="text-align:center">
+                <button class="btn shadow" type="button" id="button-card" (click)="viewProfile(member[1].id)">View Profile</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
    <div class="modal-dialog" role="document">
@@ -82,7 +115,65 @@
      </div>
    </div>
  </div> -->
-
-
-         
-</main>
+ <div class="container-fluid">
+  <div class="row">
+    <div class="container">
+      <div class="row">
+        <img [routerLink]="['/clients']" src="../../../assets/icons/icons-20.svg" style="width:100%;height:100px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;margin: auto;margin-top: 50px">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container">
+      <div class="row" style="margin-top: 4%;">
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <div class="flex-row" style="display: flex">
+            <img [routerLink]="['/clients']" src="../../../assets/icons/map-marker.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
+            <h5 id="footer-text">Matchmakerz sdfdsf sfdsfdsf sdfds</h5>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <div class="flex-row" style="display: flex">
+            <img [routerLink]="['/clients']" src="../../../assets/icons/envelope.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
+            <h5 id="footer-text">avkaranssingh357 @gmial.com</h5>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <div class="flex-row" style="display: flex">
+            <img [routerLink]="['/clients']" src="../../../assets/icons/phone.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
+            <h5 id="footer-text">+91 7201917113</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container">
+      <div class="row">
+        <h3 style="margin: auto;margin-top: 8%;color: ">Follows On</h3>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+      <div class="container">
+        <div class="flex-row" style="display: flex;margin-right: 6%; ">
+          <div style="margin:auto;">
+            <img [routerLink]="['/clients']" src="../../../assets/icons/map-marker.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
+            <img [routerLink]="['/clients']" src="../../../assets/icons/map-marker.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
+            <img [routerLink]="['/clients']" src="../../../assets/icons/map-marker.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
+            <img [routerLink]="['/clients']" src="../../../assets/icons/map-marker.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
+            <img [routerLink]="['/clients']" src="../../../assets/icons/map-marker.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+  
+</ng-container>
+  <div style="height: 50px;background: #f1f1f1;margin-top: 7%;">
+      <div class="container">
+        <div class="row">
+          <div style="font-size: 17px;height: 33px;padding: 15px;margin: auto;color: #f93c8b">Copyright 2019 All rights reserbvred by Twango Social Network Pbt. Ltd</div>
+        </div>
+      </div>
+    </div>
