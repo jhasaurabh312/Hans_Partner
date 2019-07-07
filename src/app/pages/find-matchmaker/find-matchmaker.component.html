@@ -21,7 +21,7 @@
   </div>
 
   <div class="row" style="display:flex;background-color: white;min-height: -webkit-fill-available ; margin-bottom: 60px" >
-      <div class="col-sm-12 col-md-6 col-lg-6" style="margin-top:25px;border-radius: 25px;padding:10px" *ngFor="let member of matchmakers" >
+      <div class="col-sm-8 col-md-5 col-lg-5" style="margin-top:25px;border-radius: 25px;padding:10px; margin-left: auto;margin-right: auto" *ngFor="let member of matchmakers" >
           <div class="row" style="display:flex; background-color: #f1f1f1f1; width: 90%;margin-left: auto;margin-right: auto;border-radius:25px" >
                <div style="display:flex">
                      <div class="column-l">
@@ -34,15 +34,12 @@
                      </div>
                </div>
 
-               <div class="row" style="display:flex;width: 100% ;padding:8px">
-                  <div style="width:33%;text-align:center">
+               <div class="row" style="display:flex;width: 80% ;padding:8px;margin-right: auto;margin-left: auto">
+                  <div style="width:50%;text-align:center">
                      <button class="btn btn-primary" type="button" (click) = "registerProfile(member[1].id)">Register</button>
                   </div> 
-                  <div style="width:33%;text-align:center">
-                     <button class="btn btn-primary" type="button" (click) = "getProfile(member[1].id)">View Profile</button>
-                  </div> 
-                  <div style="width:33%;text-align:center" >
-                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Get In Touch</button>
+                  <div style="width:50%;text-align:center">
+                     <button class="btn btn-primary" type="button" (click) = "viewProfile(member[1].id)">View Profile</button>
                   </div> 
                </div>
           </div>

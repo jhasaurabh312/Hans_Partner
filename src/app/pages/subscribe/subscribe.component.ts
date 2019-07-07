@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SubscriptionService } from '../services/subscription.service'
 import { AuthService } from '../services/auth.service';
+import { HttpHeaders, HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-subscribe',
@@ -9,23 +10,30 @@ import { AuthService } from '../services/auth.service';
 })
 export class SubscribeComponent implements OnInit {
 
-  data :any;
-  constructor(private sub: SubscriptionService, private auth : AuthService) {  }
-
-  pay(amt,type)
-  {
-    let rzp = this.sub.payNowT(amt,type);
-    rzp.open();
-  }
+  plans :any = [];
+  constructor(private http : HttpClient,private sub : SubscriptionService) {  }
 
   ngOnInit(){
-  this.auth.getSubscription().subscribe(res=>{
-    this.data = res;
-    console.log(res);
-    console.log(this.data.PersonalizedPremium);
-    
-  })
+    const headers = new HttpHeaders({
+      'Content-Type': 'Application/json',  
+    })
+
+    return this.http.get('http://matchmakerz.in/api/v1/client/subscribe?phone_number=9918419947').subscribe((res : any) => {
+      this.plans = res;
+      console.log(this.plans);
+    })
+
   }
+
+   pay(amt,type)
+   {
+     let rzp = this.sub.payNowT(amt,type);
+     rzp.open();
+   }
+
+
+     
+   
 
 }
 
