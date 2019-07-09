@@ -19,14 +19,15 @@
         <div class="row">
           <div class="container">
             <div class="row">
-              <img class="img-thumbnail" id="matchmaker-img" src="../../../assets/images/img1.jpg">
+              <img class="img-thumbnail" *ngIf ="member.data[0].profile_pic!=='null'" id="matchmaker-img" src="member.data[0].profile_pic">
+              <img class="img-thumbnail" *ngIf ="member.data[0].profile_pic==='null'" id="matchmaker-img" src="ttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy08cK8wogTcvUJYvty4hAPwvKxTIJEqneUkNc3r4CBLkroZyn">
             </div>
           </div>
         </div>
         <div class="row">
           <div class="container">
             <div class="row">
-              <h3 id="name">Avkaran Singh</h3>
+              <h3 id="name">{{member.data[0].first_name}} {{member.data[0].last_name}}</h3>
             </div>
           </div>
         </div>
@@ -46,7 +47,6 @@
                         </button>
                         </div>
                         <div class="modal-body">
-                          <p>Hello, World!</p>
                           <form [formGroup]="getTouch">
                           <label>phone number</label>
                             <input formControlName="phone_number" type="number" >
@@ -76,7 +76,7 @@
                   <h4>About</h4>
                 </div>
                 <div class="row">
-                  <p>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                  <p>{{member.data[0].about}}</p>
                 </div>
               </div>
             </div>
@@ -90,7 +90,7 @@
                   <h4>Unique About Me</h4>
                 </div>
                 <div class="row">
-                  <p>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                  <p>{{member.data[0].unique_about}}</p>
                 </div>
               </div>
             </div>
@@ -104,7 +104,7 @@
                   <h4>Specialise In</h4>
                 </div>
                 <div class="row">
-                  <p>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                  <p>{{member.data[0].specialization}}</p>
                 </div>
               </div>
             </div>
@@ -123,19 +123,19 @@
               <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <div class="flex-row" style="display: flex">
                   <img [routerLink]="['/clients']" src="../../../assets/icons/map-marker.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
-                  <h5 id="footer-text">Matchmakerz sdfdsf sfdsfdsf sdfds</h5>
+                  <h5 id="footer-text">{{member.data[0].location}}</h5>
                 </div>
               </div>
               <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <div class="flex-row" style="display: flex">
                   <img [routerLink]="['/clients']" src="../../../assets/icons/envelope.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
-                  <h5 id="footer-text">avkaranssingh357 @gmial.com</h5>
+                  <h5 id="footer-text">{{member.data[0].email}}</h5>
                 </div>
               </div>
               <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <div class="flex-row" style="display: flex">
                   <img [routerLink]="['/clients']" src="../../../assets/icons/phone.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
-                  <h5 id="footer-text">+91 7201917113</h5>
+                  <h5 id="footer-text">{{member.data[0].phone_number}}</h5>
                 </div>
               </div>
             </div>
