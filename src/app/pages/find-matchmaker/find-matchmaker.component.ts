@@ -37,9 +37,10 @@ export class FindMatchmakerComponent implements OnInit {
       const lat = position.coords.latitude;
       localStorage.setItem('lat',lat);
       localStorage.setItem('long',lng);
+    
     }
-
-    this.getMatchmaker();
+    // this.getMatchmaker();
+   
   }
 
   detectLocation(){
@@ -52,10 +53,10 @@ export class FindMatchmakerComponent implements OnInit {
       const lat = position.coords.latitude;
       localStorage.setItem('lat',lat);
       localStorage.setItem('long',lng);
-     
+      
     }
-
-    this.getMatchmaker();
+    // this.getMatchmaker();
+   
   }
 
   findLocation(){
@@ -75,8 +76,9 @@ export class FindMatchmakerComponent implements OnInit {
     })
 
 
-    return this.http.get('http://matchmakerz.in/api/v1/client/nearest-matchmaker?latitude='+localStorage.getItem('lat')+' &longitude='+localStorage.getItem('long')).subscribe((suc) => {
+     this.http.get('http://matchmakerz.in/api/v1/client/nearest-matchmaker?latitude='+localStorage.getItem('lat')+'&longitude='+localStorage.getItem('long'), {headers : headers}).subscribe((suc) => {
       this.matchmakers = suc;
+      console.log(this.matchmakers)
       let l = this.matchmakers.length;
       console.log(l);
       for(var i=0;i<l;i++){
@@ -92,7 +94,7 @@ export class FindMatchmakerComponent implements OnInit {
  
   viewProfile(data){
     localStorage.setItem('matchmaker_id',data);
-    this.router.navigate(['/matchmaker-profile'], { queryParams: { client_id: localStorage.getItem('client_id'), matchmaker_id: localStorage.getItem('matchmaker_id') } });
+    this.router.navigate(['/matchmaker-profile'], { queryParams: {matchmaker_id: localStorage.getItem('matchmaker_id') } });
   }
 
   getACall(){

@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FindMatchmakerComponent } from './pages/find-matchmaker/find-matchmaker.component';
-import { RegisterComponent } from './pages/register/register.component';
 import { MatchmakerProfileComponent } from './pages/matchmaker-profile/matchmaker-profile.component';
 import { SubscribeComponent } from './pages/subscribe/subscribe.component'
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatDialogModule } from '@angular/material';
 import {NgbModule,NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+import { PersonalDetailsComponent } from './pages/personal-details/personal-details.component';
+import { EducationalDetailsComponent } from './pages/educational-details/educational-details.component';
+import { SocialDetailsComponent } from './pages/social-details/social-details.component';
+import { ClientFamilyComponent } from './pages/client-family/client-family.component';
+import { ClientPreferencesComponent } from './pages/client-preferences/client-preferences.component';
 // import { AdListingComponent } from './ad-listing/ad-listing.component';
 // import { AngularFireModule } from '@angular/fire';
 // import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -19,22 +23,26 @@ import {NgbModule,NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bo
 // import { AngularFireAuthModule } from '@angular/fire/auth';
 // import { AngularFireDatabaseModule } from '@angular/fire/database';
 // import { AngularFireFunctionsModule } from '@angular/fire/functions';
-// import {
-//   MatButtonModule,
-//   MatCheckboxModule,
-//   MatInputModule,
-//   MatSelectModule,
-//   MatDatepickerModule,
-//   MatNativeDateModule
-//  } from '@angular/material';
+import {
+  MatButtonModule,
+  MatCheckboxModule,
+  MatInputModule,
+  MatSelectModule,
+  MatDatepickerModule,
+  MatNativeDateModule
+ } from '@angular/material';
 
 @NgModule({
   declarations: [
     AppComponent,
     FindMatchmakerComponent,
-    RegisterComponent,
     MatchmakerProfileComponent,
     SubscribeComponent,
+    PersonalDetailsComponent,
+    EducationalDetailsComponent,
+    SocialDetailsComponent,
+    ClientFamilyComponent,
+    ClientPreferencesComponent,
     
   ],
   imports: [
@@ -46,7 +54,13 @@ import {NgbModule,NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bo
     HttpClientModule,
     NgbModule,
     NgbPaginationModule, NgbAlertModule,
-    MatDialogModule
+    MatDialogModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
     // HttpClient,
     // AngularFireModule.initializeApp(environment.firebaseConfig),
     // AngularFireAuthModule,

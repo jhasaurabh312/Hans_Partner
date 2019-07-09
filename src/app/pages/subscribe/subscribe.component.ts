@@ -18,7 +18,7 @@ export class SubscribeComponent implements OnInit {
       'Content-Type': 'Application/json',  
     })
 
-    return this.http.get('http://matchmakerz.in/api/v1/client/subscribe?phone_number=9918419947').subscribe((res : any) => {
+    return this.http.get('http://matchmakerz.in/api/v1/client/subscribe?phone_number=123456').subscribe((res : any) => {
       this.plans = res;
       console.log(this.plans);
     })
@@ -29,8 +29,13 @@ export class SubscribeComponent implements OnInit {
    {
      let rzp = this.sub.payNowT(amt,type);
      rzp.open();
-   }
+     console.log(rzp)
 
+     
+    }
+     
+
+   
 
      
    

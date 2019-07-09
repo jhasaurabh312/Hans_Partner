@@ -1,0 +1,171 @@
+<div class="section shadow" id="header" style="background: white;">
+  <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="display:flex;height:70px;margin-top : auto; margin-bottom : auto">
+      <a [routerLink]="['/clients']" style="margin-top:auto;margin-bottom:auto;padding-left:60px;" class="text-dark">
+                            <img src="../../../assets/icons_white/angle-left.svg" style="width:14px"></a>
+      <h5 style="font-size:1.2em;font-family: poppins;margin-left: 40px;margin-top:auto;margin-bottom:auto;font-style: continuous">Client Social Details</h5>
+  </div>
+<main class="modal-body">
+<form [formGroup]="AddClientEducationalDetails">
+  <div class="container" style="padding : 30px">
+      <div class="section" style="margin-left : auto;margin-right:auto">
+                  
+              <div class="form-row ">
+                  <div class="input-group p-2">
+                      <mat-form-field class="full-width" appearance="outline">
+
+
+                    <!-- <input matInput formControlName="marital_status" placeholder="marital_status*"> -->
+                      <mat-label>Marraige</mat-label>
+
+                              <mat-select formControlName="marital_status">
+
+                                  <mat-option value="0">Never Married</mat-option>
+                                  <mat-option value="1">Divorced</mat-option>
+                                  <mat-option value="2">Widowed</mat-option>
+                              </mat-select>
+                      </mat-form-field>
+                  </div>
+             </div>
+             <div class="form-row ">
+                  <div class="input-group p-2">
+                      <mat-form-field class="full-width" appearance="outline">
+
+                              <mat-label>Children</mat-label>
+                            <input matInput  formControlName="children" placeholder="children*" type="number">
+                      </mat-form-field>
+                  </div>
+             </div>
+             <div class="form-row ">
+                  <div class="input-group p-2">
+                      <mat-form-field class="full-width" appearance="outline">
+
+                           
+                           <mat-label>Mother Tongue</mat-label>
+
+                              <mat-select formControlName="mother_tongue">
+
+                                  <mat-option value="1">Hindi</mat-option>
+                                  <mat-option value="2">Punjabi</mat-option>
+                              
+                              </mat-select>
+                      </mat-form-field>
+                  </div>
+             </div>
+          <div class="form-row ">
+              <div class="input-group p-2">
+                  <mat-form-field class="full-width" appearance="outline">
+
+                      <mat-label>Religion</mat-label>
+                      <mat-select matInput formControlName="religion" placeholder="religion*">
+
+                          <mat-option value="0">Hindu</mat-option>
+                          <mat-option value="1">Muslim</mat-option>
+                          <mat-option value="2">Christian</mat-option>
+                          <mat-option value="3">Sikh</mat-option>
+                          <mat-option value="4">Jain</mat-option>
+                          <mat-option value="5">Other</mat-option>
+
+
+                      </mat-select>
+                  </mat-form-field>
+              </div>
+          </div>
+        
+          <div class="form-row ">
+              <div class="input-group p-2">
+                  <mat-form-field class="full-width" appearance="outline">
+
+
+                      <mat-label>Zodiac</mat-label>
+                          <mat-select matInput formControlName="zodiac" >
+                              <mat-option value="0">Aries</mat-option>
+                              <mat-option value="1">Taurus</mat-option>
+                              <mat-option value="2">Gemini</mat-option>
+                              <mat-option value="3">Cancer</mat-option>
+                              <mat-option value="4">Leo</mat-option>
+                              <mat-option value="5">Virgo</mat-option>
+                              <mat-option value="6">Libra</mat-option>
+                              <mat-option value="7">Scorpio</mat-option>
+                              <mat-option value="8">Sagittarius</mat-option>
+                              <mat-option value="9">Capricorn</mat-option>
+                              <mat-option value="10">Aquarius</mat-option>
+                              <mat-option value="11">Pisces</mat-option>
+                          </mat-select>
+
+                  </mat-form-field>
+              </div>
+          </div>
+          <div class="form-row ">
+                  <div class="input-group p-2">
+                      <mat-form-field class="full-width" appearance="outline">
+
+                            
+                            
+
+                            <mat-label>Manglik</mat-label>
+                            <mat-select matInput formControlName="manglik" >
+                                <mat-option value="0">Non Manglik</mat-option>
+                                <mat-option value="1">Manglik</mat-option>
+                                <mat-option value="2">Anshik Manglik</mat-option>
+                               
+                               
+                            </mat-select>
+                          
+   
+                     </mat-form-field>
+                </div>
+          </div>
+          <div class="form-row ">
+              <div class="input-group p-2">
+                  <mat-form-field class="full-width" appearance="outline">
+
+                          <!-- <input matInput  formControlName="caste" placeholder="caste*"> -->
+                          <mat-label>Caste</mat-label>
+                          <mat-select matInput formControlName="caste" >
+                                     <mat-option *ngFor="let ietm of castes" [value]="ietm.id">
+                                          {{ietm.caste}}
+                                      </mat-option>
+                          </mat-select>
+
+                  </mat-form-field>
+              </div>
+          </div>
+          <div class="form-row ">
+              <div class="input-group p-2">
+                  <mat-form-field class="full-width" appearance="outline">
+
+                          
+
+                          <mat-label>citizenship</mat-label>
+                          <mat-select matInput formControlName="citizenship" >
+                              <mat-option value="0">Indian</mat-option>
+                              <mat-option value="1">NRI</mat-option>   
+                          </mat-select>
+
+                  </mat-form-field>
+              </div>
+          </div>
+          <div class="form-row ">
+                  <div class="input-group p-2">
+                      <mat-form-field class="full-width" appearance="outline">
+
+                        <mat-label>Horoscope Match</mat-label>
+                          <mat-select  formControlName="want_horoscope_match">
+                              <mat-option value="0">No</mat-option>
+                              <mat-option value="1">Yes</mat-option>
+                          </mat-select>
+                      </mat-form-field>
+                 </div>
+             </div>
+          <div class="input-group p-2">
+                  <button type="button" mat-raised-button class="btn btn-user " style="width:400px;background-color: #f92c8b" (click)="addClient()"> &nbsp; &nbsp; Next Page &nbsp;&nbsp;
+                  </button>
+          </div>
+
+  
+      </div>
+  <!-- </dic> -->
+  </div>
+</form>
+
+</main>

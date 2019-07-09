@@ -26,7 +26,7 @@
         <div class="row">
           <div class="container">
             <div class="row">
-              <h3 id="name">Avkaran Singh</h3>
+              <h3 id="name">{{value.first_name}}</h3>
             </div>
           </div>
         </div>
@@ -36,7 +36,7 @@
               <div class="container">
                 <div class="row">
                   <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12" id="button-div">
-                    <button class="btn shadow" id="button">Register Now</button>
+                    <button class="btn shadow" id="button" (click)="register()">Register Now</button>
                   </div>
                   <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12" id="button-div">
                     <ng-template #content let-c="close" let-d="dismiss">
@@ -46,7 +46,6 @@
                         </button>
                         </div>
                         <div class="modal-body">
-                          <p>Hello, World!</p>
                           <form [formGroup]="getTouch">
                           <label>phone number</label>
                             <input formControlName="phone_number" type="number" >
@@ -61,7 +60,7 @@
                     <button class="btn shadow" id="button" (click)="open(content)">Get In-Touch</button>
                   </div>
                   <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12" id="button-div">
-                    <button class="btn shadow" id="button">Subscribe</button>
+                    <button class="btn shadow" id="button" (click)="subscribe()">Subscribe</button>
                   </div>
                 </div>
               </div>
@@ -76,7 +75,7 @@
                   <h4>About</h4>
                 </div>
                 <div class="row">
-                  <p>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                  <p>{{value.about}}</p>
                 </div>
               </div>
             </div>
@@ -90,7 +89,7 @@
                   <h4>Unique About Me</h4>
                 </div>
                 <div class="row">
-                  <p>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                  <p>{{value.unique_about}}</p>
                 </div>
               </div>
             </div>
@@ -104,7 +103,7 @@
                   <h4>Specialise In</h4>
                 </div>
                 <div class="row">
-                  <p>orem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                  <p>{{value.specialization}}</p>
                 </div>
               </div>
             </div>
@@ -144,7 +143,7 @@
         <div class="row">
           <div class="container">
             <div class="row">
-              <h3 style="margin: auto;margin-top: 8%;color: ">Follows On</h3>
+              <h3 style="margin: auto;margin-top: 8%;color: white">Follows On</h3>
             </div>
           </div>
         </div>

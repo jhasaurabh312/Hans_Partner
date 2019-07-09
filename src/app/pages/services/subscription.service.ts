@@ -1,12 +1,23 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http'
+import {AuthService} from '../services/auth.service'
+
 declare var Razorpay : any;
 @Injectable({
   providedIn: 'root'
 })
-export class SubscriptionService {
 
-  constructor(private http : HttpClient) { }
+
+
+export class SubscriptionService {
+  data : any;
+  // check : void;
+  
+  constructor(private http : HttpClient, public auth : AuthService) { }
+
+  
+
   payNowT(amt,type) {
     var notes = {service:''};
     var keyId;
@@ -36,10 +47,15 @@ export class SubscriptionService {
       "description": "Order #",
      
       "handler": function (response){
-          console.log(response);
-          alert(response.razorpay_payment_id);
-
+            localStorage.setItem('payment_id',response.razorpay_payment_id);
+            console.log(localStorage.getItem('payment_id'));  
+            // this.auth.getSubscription().subscribe((res : any) =>{
+            //   console.log(res)
+            // })
+            this.check();
          },
+         
+          
       "prefill": {
           "name":  'test',
           "email": 'test@xyz.com',
@@ -50,7 +66,23 @@ export class SubscriptionService {
       "theme": {
           "color": "blue"
       }
+
   };
+  
   return(new Razorpay(options));
-} 
 }
+
+
+  check(){
+      console.log('hi');
+    }
+
+
+
+}
+
+
+// var newclass = new SubscriptionService(this.http,this.auth);
+// newclass.payNowT(this.amt,this.type);
+
+
