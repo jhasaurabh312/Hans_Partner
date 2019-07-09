@@ -20,7 +20,7 @@ export class FindMatchmakerComponent implements OnInit {
   value:any;
   suc : any;
   show : Boolean = false;
-
+  load: boolean = false;
   constructor(private _formBuilder: FormBuilder, private http : HttpClient, private router : Router) { 
     this.getLocation= this._formBuilder.group({
       'place' : [''],
@@ -36,9 +36,10 @@ export class FindMatchmakerComponent implements OnInit {
       const lng = position.coords.longitude;
       const lat = position.coords.latitude;
       localStorage.setItem('lat',lat);
+      console.log(lat)
+
       localStorage.setItem('long',lng);
     }
-
     this.getMatchmaker();
   }
 
@@ -81,9 +82,11 @@ export class FindMatchmakerComponent implements OnInit {
       let l = this.matchmakers.length;
       console.log(l);
       for(var i=0;i<l;i++){
-        console.log(this.matchmakers[i][1]);
         if(this.matchmakers[i][1].profile_pic == "" || this.matchmakers[i][1].profile_pic == null){
           this.matchmakers[i][1].profile_pic = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy08cK8wogTcvUJYvty4hAPwvKxTIJEqneUkNc3r4CBLkroZyn'
+        }
+        else{
+          this.matchmakers[i][1].profile_pic = "https://matchmakerz.s3.ap-south-1.amazonaws.com/"+this.matchmakers[i][1].profile_pic
         }
       }
     })

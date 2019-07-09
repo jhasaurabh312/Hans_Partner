@@ -35,7 +35,7 @@
                 <form [formGroup]='getLocation' id="form">
                   <div class="row" style="background: white;border-radius: 5px;width: 100%;">
                     <input formControlName="place" placeholder="Enter your Location" id="location-input">
-                    <label id="label" (click)="detectLocation()" id="location-mark">Detect @</label>
+                    <label id="label" (click)="detectLocation()" id="location-mark" (click)="detectLocation" style="cursor: pointer;">Detect</label>
                   </div>
                   <button type="button" class="btn-user" (click)="findLocation()">&nbsp; &nbsp; Submit &nbsp;&nbsp;</button>
                 </form>
