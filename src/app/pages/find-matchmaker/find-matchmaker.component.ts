@@ -4,6 +4,9 @@ import { FormBuilder } from '@angular/forms';
 import { FormGroup, FormControl } from '@angular/forms';
 import { validateConfig } from '@angular/router/src/config';
 import { Router } from '@angular/router';
+import {
+  SnackService
+} from '../services/snack.service'
 
 
 @Component({
@@ -18,10 +21,11 @@ export class FindMatchmakerComponent implements OnInit {
   res : any;
   val:any;
   value:any;
+  location:any;
   suc : any;
   show : Boolean = false;
   load: boolean = false;
-  constructor(private _formBuilder: FormBuilder, private http : HttpClient, private router : Router) { 
+  constructor(private _formBuilder: FormBuilder, private http : HttpClient, private router : Router,public snack: SnackService) { 
     this.getLocation= this._formBuilder.group({
       'place' : [''],
     });; 
@@ -47,6 +51,7 @@ export class FindMatchmakerComponent implements OnInit {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(displayLocationInfo);
     }
+    this.location = '';
     
     function displayLocationInfo(position) {
       const lng = position.coords.longitude;
@@ -66,6 +71,7 @@ export class FindMatchmakerComponent implements OnInit {
       if(this.val.status === 'OK'){
         localStorage.setItem('lat',this.val.results[0].geometry.location.lat);
         localStorage.setItem('long',this.val.results[0].geometry.location.lng);
+        this.location = this.val.results[0].formatted_address
         this.getMatchmaker();
       }   
    });
@@ -96,7 +102,15 @@ export class FindMatchmakerComponent implements OnInit {
  
   viewProfile(data){
     localStorage.setItem('matchmaker_id',data);
-    this.router.navigate(['/matchmaker-profile'], { queryParams: { client_id: localStorage.getItem('client_id'), matchmaker_id: localStorage.getItem('matchmaker_id') } });
+    this.router.navigate(['/matchmaker-profile'], { queryParams: { client_id: localStorage.getItem('client_id'), id:data } });
+  }
+  registerProfile(data){
+    localStorage.setItem('matchmaker_id',data);
+    this.router.navigate(['/personal-details'], { queryParams: {id:data } });
+  }
+  GoTO(data){
+    localStorage.setItem('matchmaker_id',data);
+   window.open('http://matchmakerz.in/dashboard/get-otp', "_blank");
   }
 
   getACall(){

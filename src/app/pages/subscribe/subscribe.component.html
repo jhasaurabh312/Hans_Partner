@@ -1,12 +1,12 @@
 <div class="section shadow" id="header" style="background: white;">
-      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="display:flex;height:70px;margin-top : auto; margin-bottom : auto">
-          <a [routerLink]="['/my-profile']" style="margin-top:auto;margin-bottom:auto;" class="text-dark"><i class="fa fa-chevron-left" style="font-size: 1.3em" ></i></a>
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 " style="display:flex;height:70px;margin-top : auto; margin-bottom : auto">
+          <a [routerLink]="['/matchmaker-profile']"  queryParamsHandling="merge" style="margin-top:auto;margin-bottom:auto;" class="text-dark"><i class="fa fa-chevron-left" style="font-size: 1.3em" ></i></a>
           <h5 style="font-size:1.4em;font-family: poppins;margin-left: 40px;margin-top:auto;margin-bottom:auto;font-style: continuous;color : #f92Cbb">Payment</h5>
       </div>
 <main class="modal-body">
   
       <div class="section">
-            <div class="col-sm-6 col-md-6 col-lg-6" style="background-color : #f1f1f1;border-radius : 20px; margin-left:auto;margin-right:auto" *ngFor="let plan of plans">
+            <div class="col-sm-6 col-md-6 col-lg-6 shadow-sm" style="background-color : #f1f1f1;border-radius : 20px; margin-left:auto;margin-right:auto" *ngFor="let plan of plans">
 
                  <div class="container" style="padding:10px;display:block;margin-top: 20px;padding-top:10px">
       
@@ -27,7 +27,7 @@
                  </div>
                  <div class="container" style="padding-top:10px;padding-bottom:10px">
                        <div class="row" style="margin-top:auto;margin-bottom:auto">
-                             <button class="btn btn-user" style="margin-top:auto;margin-bottom:auto" (click)="pay(plan.payment_amount,'live')">Pay Now</button>
+                             <button class="btn btn-user shadow" id="paynow" style="margin-top:auto;margin-bottom:auto" (click)="pay('1','test', plan.id)">Pay Now</button>
                        </div>
                  </div>
 

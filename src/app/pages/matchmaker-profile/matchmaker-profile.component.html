@@ -3,7 +3,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-xs-6 col-sm-6 col-md-8 col-lg-9" style="display:flex;height:85px;">
-          <img [routerLink]="['/clients']" src="../../../assets/icons/icons-20.svg" style="width:80px;height:80px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
+          <img [routerLink]="['/']" src="../../../assets/icons/icons-20.svg" style="outline: none;width:80px;height:80px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
           <h5 style="font-size:1.4em;font-family: poppins;margin-left: 20px;margin-top:auto;margin-bottom:auto;font-weight:bold;color:#606060;font-style: continuous">Matchmakerz</h5>
         </div>
         <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3" style="display:flex;height:85px;">
@@ -19,15 +19,17 @@
         <div class="row">
           <div class="container">
             <div class="row">
-              <img class="img-thumbnail" *ngIf ="member.data[0].profile_pic!=='null'" id="matchmaker-img" src="member.data[0].profile_pic">
-              <img class="img-thumbnail" *ngIf ="member.data[0].profile_pic==='null'" id="matchmaker-img" src="ttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy08cK8wogTcvUJYvty4hAPwvKxTIJEqneUkNc3r4CBLkroZyn">
+              <img class="img-thumbnail" id="matchmaker-img" src="{{value.profile_pic}}">
             </div>
           </div>
         </div>
         <div class="row">
           <div class="container">
             <div class="row">
-              <h3 id="name">{{member.data[0].first_name}} {{member.data[0].last_name}}</h3>
+              <!-- <h3 id="name">{{member.data[0].first_name}} {{member.data[0].last_name}}</h3> -->
+<!-- ======= -->
+              <h3 id="name">{{value.first_name}} {{value.last_name}}</h3>
+<!-- >>>>>>> beab7c4ca5212bdc31bd90ed9224a59ab5539656 -->
             </div>
           </div>
         </div>
@@ -36,10 +38,10 @@
             <div class="row">
               <div class="container">
                 <div class="row">
-                  <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12" id="button-div">
-                    <button class="btn shadow" id="button">Register Now</button>
+                  <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12" id="button-div">
+                    <button class="btn shadow" id="button" (click)="register()">Register Now</button>
                   </div>
-                  <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12" id="button-div">
+                  <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12" id="button-div">
                     <ng-template #content let-c="close" let-d="dismiss">
                       <div class="modal-header">
                         <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
@@ -48,21 +50,58 @@
                         </div>
                         <div class="modal-body">
                           <form [formGroup]="getTouch">
-                          <label>phone number</label>
-                            <input formControlName="phone_number" type="number" >
-                            <button type="submit" (click)="touch()">submit</button>
+                            <div class="container-fluid">
+                              <div class="row">
+                                <mat-form-field class="full-width"  style="height:60px;width: 200px; ">
+                                    <mat-label>Phone Number</mat-label>
+                                          <input matInput formControlName="phone_number" placeholder="phone_number">
+                                
+                                  </mat-form-field>
+                              </div>
+                              <div class="row">
+                                <mat-form-field class="full-width"  style="height:60px;width: 200px; ">
+                                    <mat-label>Name</mat-label>
+                                          <input matInput formControlName="name" placeholder="name">
+                                
+                                  </mat-form-field>
+                              </div>
+
+
+                            </div>
+
+                                                    <button type="submit" class="btn" style="background: #f92c8b; color: white" (click)="touch()">submit</button>
                           </form>
                         </div>
                       <div class="modal-footer">
-                          <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
+                          <!-- <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button> -->
                         </div>
                       </ng-template>
 
                     <button class="btn shadow" id="button" (click)="open(content)">Get In-Touch</button>
                   </div>
-                  <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12" id="button-div">
-                    <button class="btn shadow" id="button">Subscribe</button>
-                  </div>
+             <!--      <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12" id="button-div">
+                     <ng-template #plan let-c="close" let-d="dismiss">
+                      <div class="modal-header">
+                        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                          <form [formGroup]="getPlans">
+                            <mat-form-field class="full-width"  style="height:60px;width: 200px; ">
+                                <mat-label>Phone Number</mat-label>
+                                      <input matInput formControlName="phone_number" placeholder="phone_number">
+                            
+                                  </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                                    <button type="submit" class="btn" style="background: #f92c8b; color: white" (click)="subscribe(plan)">submit</button>
+                                  </form>
+                                </div>
+                              <div class="modal-footer">
+                                </div>
+                              </ng-template>
+                    <button class="btn shadow" id="button" (click)="open(plan)">Subscribe</button>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -76,7 +115,9 @@
                   <h4>About</h4>
                 </div>
                 <div class="row">
-                  <p>{{member.data[0].about}}</p>
+
+                  <p>{{value.about}}</p>
+
                 </div>
               </div>
             </div>
@@ -90,7 +131,8 @@
                   <h4>Unique About Me</h4>
                 </div>
                 <div class="row">
-                  <p>{{member.data[0].unique_about}}</p>
+
+                  <p>{{value.unique_about}}</p>
                 </div>
               </div>
             </div>
@@ -104,7 +146,7 @@
                   <h4>Specialise In</h4>
                 </div>
                 <div class="row">
-                  <p>{{member.data[0].specialization}}</p>
+                  <p>{{value.specialization}}</p>
                 </div>
               </div>
             </div>
@@ -122,20 +164,20 @@
             <div class="row" style="margin-top: 4%;">
               <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <div class="flex-row" style="display: flex">
-                  <img [routerLink]="['/clients']" src="../../../assets/icons/map-marker.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
-                  <h5 id="footer-text">{{member.data[0].location}}</h5>
+                  <img [routerLink]="['/clients']" src="../../../assets/icons/location-mark.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
+                  <h5 id="footer-text">{{value.location}}</h5>
                 </div>
               </div>
               <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <div class="flex-row" style="display: flex">
                   <img [routerLink]="['/clients']" src="../../../assets/icons/envelope.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
-                  <h5 id="footer-text">{{member.data[0].email}}</h5>
+                  <h5 id="footer-text">{{value.email}}</h5>
                 </div>
               </div>
               <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <div class="flex-row" style="display: flex">
                   <img [routerLink]="['/clients']" src="../../../assets/icons/phone.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
-                  <h5 id="footer-text">{{member.data[0].phone_number}}</h5>
+                  <h5 id="footer-text">{{value.phone_number}}</h5>
                 </div>
               </div>
             </div>
@@ -144,7 +186,7 @@
         <div class="row">
           <div class="container">
             <div class="row">
-              <h3 style="margin: auto;margin-top: 8%;color: ">Follows On</h3>
+              <h3 style="margin: auto;margin-top: 8%;color: white">Follows On</h3>
             </div>
           </div>
         </div>
@@ -152,11 +194,16 @@
           <div class="container">
             <div class="flex-row" style="display: flex;margin-right: 6%; ">
               <div style="margin:auto;">
+<!--                 <img [routerLink]="['/clients']" src="../../../assets/icons/map-marker.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
                 <img [routerLink]="['/clients']" src="../../../assets/icons/map-marker.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
                 <img [routerLink]="['/clients']" src="../../../assets/icons/map-marker.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
                 <img [routerLink]="['/clients']" src="../../../assets/icons/map-marker.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
-                <img [routerLink]="['/clients']" src="../../../assets/icons/map-marker.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
-                <img [routerLink]="['/clients']" src="../../../assets/icons/map-marker.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
+                <img [routerLink]="['/clients']" src="../../../assets/icons/map-marker.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;"> -->
+                                        <a href="#"  style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;"><i style="color: #f93c8b" class="fa fa-2x fa-facebook"></i> </a>
+                        <a href="#"  style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;"><i style="color: #f93c8b" class="fa fa-2x fa-twitter"></i> </a>
+                        <a href="#"  style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;"><i style="color: #f93c8b" class="fa fa-2x fa-dribbble"></i> </a>
+                        <a href="#"  style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;"><i style="color: #f93c8b" class="fa fa-2x fa-pinterest-p"></i> </a>
+                        <a href="#"  style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;"><i style="color: #f93c8b" class="fa fa-2x fa-linkedin"></i> </a>
               </div>
             </div>
           </div>
@@ -168,7 +215,7 @@
     <div class="container">
       <div class="row">
               <div style="font-size: 17px;height: 33px;padding: 15px;margin: auto;color: #f93c8b"> 
-                Copyright 2019 All rights reserbvred by Twango Social Network Pbt. Ltd
+                Copyright 2019 All rights reserved by Twango Social Network Pbt. Ltd
               </div>
       </div>
     </div>

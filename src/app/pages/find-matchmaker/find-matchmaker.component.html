@@ -3,11 +3,11 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-xs-6 col-sm-7 col-md-8 col-lg-9" style="display:flex;height:85px;">
-          <img [routerLink]="['/clients']" src="../../../assets/icons/icons-20.svg" style="width:80px;height:80px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
+          <img [routerLink]="['/']" src="../../../assets/icons/icons-20.svg" style="outline:none;width:80px;height:80px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
           <h5 style="font-size:1.4em;font-family: poppins;margin-left: 20px;margin-top:auto;margin-bottom:auto;font-weight:bold;color:#606060;font-style: continuous">Matchmakerz</h5>
         </div>
         <div class="col-xs-6 col-sm-5 col-md-4 col-lg-3" style="display:flex;height:85px;">
-          <button class="btn btn-md shadow" style="margin-top: auto;margin-bottom: auto;margin-left: 10%;border-radius: 20px;border: 1px solid #f93c8b;color: #f93c8b;">Are you matchmaker</button>
+          <button class="btn btn-md shadow" (click)="GoTo()" style="margin-top: auto;margin-bottom: auto;margin-left: 10%;border-radius: 20px;border: 1px solid #f93c8b;color: #f93c8b;">Are you matchmaker ? </button>
         </div>
       </div>
     </div>
@@ -29,15 +29,24 @@
           <div id="search-div-2">
             <div class="row">
               <div class="col-lg-4 col-md-3 col-sm-3 col-xs-6">
-                <button id="show-location">Delhi</button>
+
+                <button style="outline: none;text-align: left;" id="show-location">  <img  src="../../../assets/icons/map-marker.svg" style="outline:none;width:45px;height:22px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;cursor: pointer;    margin-bottom: 3px;"> {{location}}</button>
               </div>
               <div class="col-sm-9 col-xs-6 col-lg-8 col-md-9">
                 <form [formGroup]='getLocation' id="form">
                   <div class="row" style="background: white;border-radius: 5px;width: 100%;">
-                    <input formControlName="place" placeholder="Enter your Location" id="location-input">
-                    <label id="label" (click)="detectLocation()" id="location-mark" (click)="detectLocation" style="cursor: pointer;">Detect</label>
+                 <!--    <mat-form-field>
+                      <mat-label>Address << using the directive >></mat-label>
+                      <input style="outline: none" formControlName="place"  id="location-input" matInput
+                           matGoogleMapsAutocomplete
+                           [country]="de"
+                           (onAutocompleteSelected)="onAutocompleteSelected($event)"
+                           (onLocationSelected)="onLocationSelected($event)">
+                    </mat-form-field> -->
+                    <input style="outline: none" formControlName="place" placeholder="Enter your Location" id="location-input">
+                    <label id="label" (click)="detectLocation()" id="location-mark" (click)="detectLocation" style="cursor: pointer;outline: none;display: flex;"><img  src="../../../assets/icons/location.svg" > Detect</label>
                   </div>
-                  <button type="button" class="btn-user" (click)="findLocation()">&nbsp; &nbsp; Submit &nbsp;&nbsp;</button>
+                  <button type="submit" class="btn-user" style="outline: none" (click)="findLocation()">&nbsp; &nbsp; Submit &nbsp;&nbsp;</button>
                 </form>
               </div>
             </div>
@@ -128,8 +137,8 @@
       <div class="row" style="margin-top: 4%;">
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
           <div class="flex-row" style="display: flex">
-            <img [routerLink]="['/clients']" src="../../../assets/icons/map-marker.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
-            <h5 id="footer-text">Matchmakerz sdfdsf sfdsfdsf sdfds</h5>
+            <img [routerLink]="['/clients']" src="../../../assets/icons/location-mark.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
+            <h5 id="footer-text">H-18 Ramesh Nagar, Near Metro Station, New Delhi</h5>
           </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
@@ -141,7 +150,7 @@
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
           <div class="flex-row" style="display: flex">
             <img [routerLink]="['/clients']" src="../../../assets/icons/phone.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
-            <h5 id="footer-text">+91 7201917113</h5>
+            <h5 id="footer-text">+91 XXXXXXXXXXX </h5>
           </div>
         </div>
       </div>
@@ -150,19 +159,19 @@
   <div class="row">
     <div class="container">
       <div class="row">
-        <h3 style="margin: auto;margin-top: 8%;color: ">Follows On</h3>
+        <h3 style="margin: auto;margin-top: 8%;color: #f93c8b;">Follows On</h3>
       </div>
     </div>
   </div>
     <div class="row">
       <div class="container">
         <div class="flex-row" style="display: flex;margin-right: 6%; ">
-          <div style="margin:auto;">
-            <img [routerLink]="['/clients']" src="../../../assets/icons/map-marker.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
-            <img [routerLink]="['/clients']" src="../../../assets/icons/map-marker.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
-            <img [routerLink]="['/clients']" src="../../../assets/icons/map-marker.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
-            <img [routerLink]="['/clients']" src="../../../assets/icons/map-marker.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
-            <img [routerLink]="['/clients']" src="../../../assets/icons/map-marker.svg" style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;">
+          <div style="margin:auto;    margin-top: 4%">
+                <a href="#"  style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;"><i style="color: #f93c8b" class="fa fa-2x fa-facebook"></i> </a>
+                        <a href="#"  style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;"><i style="color: #f93c8b" class="fa fa-2x fa-twitter"></i> </a>
+                        <a href="#"  style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;"><i style="color: #f93c8b" class="fa fa-2x fa-dribbble"></i> </a>
+                        <a href="#"  style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;"><i style="color: #f93c8b" class="fa fa-2x fa-pinterest-p"></i> </a>
+                        <a href="#"  style="width:70px;height:70px;border-color: #f93c8b;margin-top:auto;margin-bottom:auto;padding-left:30px;cursor: pointer;"><i style="color: #f93c8b" class="fa fa-2x fa-linkedin"></i> </a>
           </div>
         </div>
       </div>
@@ -170,10 +179,11 @@
 </div>
   
 </ng-container>
-  <div style="height: 50px;background: #f1f1f1;margin-top: 7%;">
+  <div style="height: 50px;background: #f1f1f1;margin-top: 7%">
       <div class="container">
         <div class="row">
           <div style="font-size: 17px;height: 33px;padding: 15px;margin: auto;color: #f93c8b">Copyright 2019 All rights reserbvred by Twango Social Network Pbt. Ltd</div>
         </div>
       </div>
-    </div>
+  </div>
+
