@@ -43,8 +43,8 @@
                            (onAutocompleteSelected)="onAutocompleteSelected($event)"
                            (onLocationSelected)="onLocationSelected($event)">
                     </mat-form-field> -->
-                    <input style="outline: none" formControlName="place" placeholder="Enter your Location" id="location-input">
-                    <label id="label" (click)="detectLocation()" id="location-mark" (click)="detectLocation" style="cursor: pointer;outline: none;display: flex;"><img  src="../../../assets/icons/location.svg" > Detect</label>
+                    <input style="outline: none" formControlName="place" placeholder="Enter your Location" id="location-input" ngx-google-places-autocomplete [options]='options' #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)">
+                    <label id="label" (click)="detectLocation()" id="location-mark"  style="cursor: pointer;outline: none;display: flex;"><img  src="../../../assets/icons/location.svg" > Detect</label>
                   </div>
                   <button type="submit" class="btn-user" style="outline: none" (click)="findLocation()">&nbsp; &nbsp; Submit &nbsp;&nbsp;</button>
                 </form>

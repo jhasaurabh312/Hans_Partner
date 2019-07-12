@@ -10,7 +10,7 @@ import { ClientFamilyComponent } from './pages/client-family/client-family.compo
 import { ClientPreferencesComponent } from './pages/client-preferences/client-preferences.component';
 
 const routes: Routes = [
-    { path: '', component: FindMatchmakerComponent, pathMatch : 'full'},
+    { path: '', component: FindMatchmakerComponent},
     { path : 'subscribe' , component : SubscribeComponent},
     { path : 'matchmaker-profile', component: MatchmakerProfileComponent},
     { path : 'personal-details', component: PersonalDetailsComponent},

@@ -34,6 +34,8 @@ import {
  } from '@angular/material';
 import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
 import { AgmCoreModule } from '@agm/core';
+import { GooglePlaceModule } from "ngx-google-places-autocomplete";
+
 
 @NgModule({
   declarations: [
@@ -70,6 +72,7 @@ import { AgmCoreModule } from '@agm/core';
                   libraries: ['places']
                   }),
     MatGoogleMapsAutocompleteModule.forRoot(),
+    GooglePlaceModule,
 
     // HttpClient,
     // AngularFireModule.initializeApp(environment.firebaseConfig),

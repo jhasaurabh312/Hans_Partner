@@ -87,7 +87,11 @@ export class MatchmakerProfileComponent implements OnInit {
 
      })
     }
+    // 347bff
+gotMyMatch(){
+     window.open('http://matchmakerz.in/dashboard/get-otp', "_blank");
 
+}
 
     subscribe(plan){
           // this.modelRef.close();

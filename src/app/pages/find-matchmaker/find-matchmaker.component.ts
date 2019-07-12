@@ -17,7 +17,7 @@ import {
 export class FindMatchmakerComponent implements OnInit {
   getLocation: FormGroup;
   matchmakers : any= [];
-  YOUR_API_KEY='AIzaSyDYzOj_e7CSYYRW36a4K52O1OjR7rvEN9E';
+  YOUR_API_KEY='AIzaSyDp3DXG-vfdk7QZDEqfJP3EjxG7fCQJq8I';
   res : any;
   val:any;
   value:any;
@@ -25,6 +25,7 @@ export class FindMatchmakerComponent implements OnInit {
   suc : any;
   show : Boolean = false;
   load: boolean = false;
+  latlong:any;
   constructor(private _formBuilder: FormBuilder, private http : HttpClient, private router : Router,public snack: SnackService) { 
     this.getLocation= this._formBuilder.group({
       'place' : [''],
@@ -47,20 +48,28 @@ export class FindMatchmakerComponent implements OnInit {
     this.getMatchmaker();
   }
 
-  detectLocation(){
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(displayLocationInfo);
-    }
-    this.location = '';
-    
-    function displayLocationInfo(position) {
+ displayLocationInfo(position) {
       const lng = position.coords.longitude;
       const lat = position.coords.latitude;
       localStorage.setItem('lat',lat);
+      console.log(lng)
+      this.latlong+=(lat+','+lng)
       localStorage.setItem('long',lng);
-     
+       
+      this.http.get('https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ","
+                    + lng + "&sensor=true"+'&key='+this.YOUR_API_KEY).subscribe((res) => {
+      this.val=res;  
+      console.log(res)
+      if(this.val.status === 'OK'){
+          var l = parseInt((parseInt(this.val.results.length)/2).toString())
+          this.location = this.val.results[(l)].formatted_address
+        }   
+       });
     }
-
+  detectLocation(){
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(this.displayLocationInfo.bind(this));
+    }
     this.getMatchmaker();
   }
 
@@ -92,7 +101,7 @@ export class FindMatchmakerComponent implements OnInit {
           this.matchmakers[i][1].profile_pic = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQy08cK8wogTcvUJYvty4hAPwvKxTIJEqneUkNc3r4CBLkroZyn'
         }
         else{
-          this.matchmakers[i][1].profile_pic = "https://matchmakerz.s3.ap-south-1.amazonaws.com/"+this.matchmakers[i][1].profile_pic
+          this.matchmakers[i][1].profile_pic = this.matchmakers[i][1].profile_pic
         }
       }
     })
@@ -108,8 +117,8 @@ export class FindMatchmakerComponent implements OnInit {
     localStorage.setItem('matchmaker_id',data);
     this.router.navigate(['/personal-details'], { queryParams: {id:data } });
   }
-  GoTO(data){
-    localStorage.setItem('matchmaker_id',data);
+  GoTo(){
+    // localStorage.setItem('matchmaker_id',data);
    window.open('http://matchmakerz.in/dashboard/get-otp', "_blank");
   }
 
