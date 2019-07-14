@@ -22,7 +22,7 @@ getSubscription(payment_id,gateway,client_id,order_id,matchmaker_id)
   data.append('client_id',client_id);
   data.append('matchmakerss_id',matchmaker_id);
   // console.log(data.getAll)
-  return this.http.post('http://matchmakerz.in/match/api/v1/matchmaker/client-payment-confirmation',data).subscribe((res)=>{
+  return this.http.post('https://matchmakerz.in/match/api/v1/matchmaker/client-payment-confirmation',data).subscribe((res)=>{
     console.log(res)
   })
 }

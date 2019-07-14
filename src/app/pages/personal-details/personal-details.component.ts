@@ -77,7 +77,7 @@ export class PersonalDetailsComponent implements OnInit {
 
     console.log(NewProfile.get('birth_date'));
 
-    return this.http.post('http://matchmakerz.in/api/v1/client/registerClient' , NewProfile ,{ 
+    return this.http.post('https://matchmakerz.in/api/v1/client/registerClient' , NewProfile ,{ 
         headers : new HttpHeaders({
 
           'Authorization': 'Token ' + localStorage.getItem('token'),

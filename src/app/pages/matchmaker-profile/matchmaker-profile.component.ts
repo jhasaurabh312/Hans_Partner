@@ -50,7 +50,7 @@ export class MatchmakerProfileComponent implements OnInit {
     })
 
   
-   this.http.get('http://matchmakerz.in/api/v1/client/get-matchmaker?id='+this.route.snapshot.queryParamMap.get('id'), {headers : headers}).subscribe((res) => {
+   this.http.get('https://matchmakerz.in/api/v1/client/get-matchmaker?id='+this.route.snapshot.queryParamMap.get('id'), {headers : headers}).subscribe((res) => {
      this.member=res;
 
      if(this.member.data[0].profile_pic==null)
@@ -73,7 +73,7 @@ export class MatchmakerProfileComponent implements OnInit {
       'Content-Type': 'Application/json',  
     })
 
-  this.http.post('http://matchmakerz.in/api/v1/client/get-in-touch', NewProfile).subscribe((res) => {
+  this.http.post('https://matchmakerz.in/api/v1/client/get-in-touch', NewProfile).subscribe((res) => {
       console.log(res)
       this.lead_res = res;
                            if (this.lead_res.status === 1) {
@@ -89,7 +89,7 @@ export class MatchmakerProfileComponent implements OnInit {
     }
     // 347bff
 gotMyMatch(){
-     window.open('http://matchmakerz.in/dashboard/get-otp', "_blank");
+     window.open('https://matchmakerz.in/dashboard/get-otp', "_blank");
 
 }
 

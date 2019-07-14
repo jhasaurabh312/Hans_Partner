@@ -92,7 +92,7 @@ export class FindMatchmakerComponent implements OnInit {
     })
 
     // console.logt()
-    return this.http.get('http://matchmakerz.in/api/v1/client/nearest-matchmaker?latitude='+localStorage.getItem('lat')+'&longitude='+localStorage.getItem('long')).subscribe((suc) => {
+    return this.http.get('https://matchmakerz.in/api/v1/client/nearest-matchmaker?latitude='+localStorage.getItem('lat')+'&longitude='+localStorage.getItem('long')).subscribe((suc) => {
       this.matchmakers = suc;
       let l = this.matchmakers.length;
       console.log(l);
@@ -119,7 +119,7 @@ export class FindMatchmakerComponent implements OnInit {
   }
   GoTo(){
     // localStorage.setItem('matchmaker_id',data);
-   window.open('http://matchmakerz.in/dashboard/get-otp', "_blank");
+   window.open('https://matchmakerz.in/dashboard/get-otp', "_blank");
   }
 
   getACall(){

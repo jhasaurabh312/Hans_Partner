@@ -45,7 +45,7 @@ export class SocialDetailsComponent implements OnInit {
     }) 
 
 
-    this.http.get('http://matchmakerz.in/api/v1/client/castes',{headers : headers}).subscribe((res) => {
+    this.http.get('https://matchmakerz.in/api/v1/client/castes',{headers : headers}).subscribe((res) => {
       console.log(res)
       this.castes = res
  
@@ -76,7 +76,7 @@ export class SocialDetailsComponent implements OnInit {
 
     console.log(NewProfile);
 
-    return this.http.post('http://matchmakerz.in/api/v1/client/client-social-update', NewProfile, {
+    return this.http.post('https://matchmakerz.in/api/v1/client/client-social-update', NewProfile, {
       headers: new HttpHeaders({
         'Authorization': 'Token ' + localStorage.getItem('token'),
       })

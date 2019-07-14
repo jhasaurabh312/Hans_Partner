@@ -68,7 +68,7 @@ export class ClientFamilyComponent implements OnInit {
       }) 
      if(localStorage.getItem('clientId')){
 
-      this.http.get('http://matchmakerz.in/api/v1/client/profile?id='+this.route.snapshot.queryParamMap.get('client') ,{headers : headers}).subscribe((user) => {
+      this.http.get('https://matchmakerz.in/api/v1/client/profile?id='+this.route.snapshot.queryParamMap.get('client') ,{headers : headers}).subscribe((user) => {
         this.user = user;
                 this.client_data = user;
 
@@ -124,7 +124,7 @@ export class ClientFamilyComponent implements OnInit {
       NewProfile.append('is_active', "1");
       console.log(NewProfile);
   
-      return this.http.post('http://matchmakerz.in/api/v1/client/client-family-update', NewProfile ,{ 
+      return this.http.post('https://matchmakerz.in/api/v1/client/client-family-update', NewProfile ,{ 
           headers : new HttpHeaders({
             'Authorization': 'Token ' + localStorage.getItem('token'),
           })}).pipe(catchError((error) => {

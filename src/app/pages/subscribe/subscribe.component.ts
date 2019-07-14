@@ -28,7 +28,7 @@ export class SubscribeComponent implements OnInit {
     this.matchmaker  = this.route.snapshot.queryParamMap.get('id');
 
     console.log(this.client)
-    this.http.get('http://matchmakerz.in/api/v1/client/get-client-detail?phone_number='+this.client).subscribe((res : any) => {
+    this.http.get('https://matchmakerz.in/api/v1/client/get-client-detail?phone_number='+this.client).subscribe((res : any) => {
       console.log(res)
       if(res.status===1){
         this.client_id  = res.id;
@@ -39,7 +39,7 @@ export class SubscribeComponent implements OnInit {
       }
       console.log(this.plans);
     })
-    return this.http.get('http://matchmakerz.in/match/api/v1/client/subscribe?phone_number='+this.client+"&id="+this.matchmaker).subscribe((res : any) => {
+    return this.http.get('https://matchmakerz.in/match/api/v1/client/subscribe?phone_number='+this.client+"&id="+this.matchmaker).subscribe((res : any) => {
       this.plans = res;
       console.log(this.plans);
     })

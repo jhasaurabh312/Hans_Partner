@@ -71,13 +71,13 @@ res:any;
     }) 
 
 
-    this.http.get('http://matchmakerz.in/api/v1/client/castes',{headers : headers}).subscribe((res) => {
+    this.http.get('https://matchmakerz.in/api/v1/client/castes',{headers : headers}).subscribe((res) => {
       console.log(res)
       this.castes = res
  
     })
       // if(localStorage.getItem('clientId')){
-     this.http.get('http://matchmakerz.in/api/v1/client/client-preferences?id='+this.route.snapshot.queryParamMap.get('client') ,{headers : headers}).subscribe((res) => {
+     this.http.get('https://matchmakerz.in/api/v1/client/client-preferences?id='+this.route.snapshot.queryParamMap.get('client') ,{headers : headers}).subscribe((res) => {
       this.res = res;
       console.log((this.res));
       var cast_prefer = '';
@@ -193,7 +193,7 @@ res:any;
 
     // }
 
-    return this.http.post('http://matchmakerz.in/api/v1/client/updateclientpref/' , NewProfile ,{ 
+    return this.http.post('https://matchmakerz.in/api/v1/client/updateclientpref/' , NewProfile ,{ 
         headers : new HttpHeaders({
           'Authorization': 'Token ' + localStorage.getItem('token'),
         })}).pipe(catchError((error) => {
