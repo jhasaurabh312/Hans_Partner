@@ -26,6 +26,7 @@ export class FindMatchmakerComponent implements OnInit {
   show : Boolean = false;
   load: boolean = false;
   latlong:any;
+
   constructor(private _formBuilder: FormBuilder, private http : HttpClient, private router : Router,public snack: SnackService) { 
     this.getLocation= this._formBuilder.group({
       'place' : [''],
@@ -47,7 +48,9 @@ export class FindMatchmakerComponent implements OnInit {
     }
     this.getMatchmaker();
   }
-
+  handleAddressChange(e){
+    this.location = e.formatted_address;
+  }
  displayLocationInfo(position) {
       const lng = position.coords.longitude;
       const lat = position.coords.latitude;
@@ -63,6 +66,10 @@ export class FindMatchmakerComponent implements OnInit {
       if(this.val.status === 'OK'){
           var l = parseInt((parseInt(this.val.results.length)/2).toString())
           this.location = this.val.results[(l)].formatted_address
+                this.getLocation= this._formBuilder.group({
+              'place' : [this.location],
+            });; 
+
         }   
        });
     }
