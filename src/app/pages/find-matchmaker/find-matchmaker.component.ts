@@ -26,6 +26,7 @@ export class FindMatchmakerComponent implements OnInit {
   show : Boolean = false;
   load: boolean = false;
   latlong:any;
+  options:any=[];
 
   constructor(private _formBuilder: FormBuilder, private http : HttpClient, private router : Router,public snack: SnackService) { 
     this.getLocation= this._formBuilder.group({
